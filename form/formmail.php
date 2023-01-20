@@ -17,7 +17,7 @@ foreach ($_POST as $var=>$value)
 {
 	foreach ($required as $t=>$req)
 		if (trim($req) == trim($var) && trim($value)=='')
-			$err.= "Не заполнено обязательное поле '$var'.<br>";
+			$err.= "Required field not filled '$var'.<br>";
 	$msg.= "$var: $value\n";
 }
 
@@ -26,18 +26,18 @@ PRINT "
 	<head></head>
 	<body>
 	<p>&nbsp;
-	<h1>Отправка сообщения</h1>
+	<h1>Sending a message</h1>
 	";
 
 if ($err != '')
 {
 	PRINT "
-		<p><b><font color='red'>Сообщение не отправлено.</font></b> 
-		<br>Обнаружены ошибки:
+		<p><b><font color='red'>Message not sent.</font></b> 
+		<br>Errors found:
 		<p>
 		$err
 		<p>
-		Пожалуйста, вернитесь и заполните форму правильно.
+		Please fill out the form correctly.
 		";
 }
 else
@@ -45,9 +45,9 @@ else
 	_mail ("no-reply@1gb.ua", $_POST["recipient"], $_POST["subject"], $msg);
 	
 	PRINT "
-		<p>Спасибо.
-		<p>Ваше сообщение успешно отправлено на адрес $_POST[recipient].
-		<p>Наши сотрудники обязательно свяжутся с вами.
+		<p>Thank you.
+		<p>Your message has been successfully sent to $_POST[recipient].
+		<p>Our staff will contact you.
 		";
 }
 
