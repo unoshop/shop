@@ -98,11 +98,19 @@ function showDebugMessage(message) {
     document.getElementById('fcf-status').innerHTML = display;
 }
 
+// Removing this credit is NOT allowed
+// Please purchase a pro license for credit removal rights
+var creditcontainer = document.querySelector(".buttons");
+var creditdiv = document.createElement('div');
+creditdiv.innerHTML = '<div class="field" style="font-size:0.9em;color:#aaa;padding-top:15px;padding-bottom:10px">Free contact form by <a href="https://www.majesticform.com" style="font-size:0.9em;color:#aaa;text-decoration:none" target="_blank">MajesticForm</a>.</div>';
+creditcontainer.parentNode.insertAdjacentElement('afterend', creditdiv);
+
+
 function showSuccessMessage(message) {
-   var message = '<br><br>' + message.substring(8);
-   var content = document.getElementById('fcf-form').innerHTML;
-   document.getElementById('fcf-form').innerHTML = content + message;
-   document.getElementById('fcf-status').innerHTML = '';
-   document.getElementById('fcf-form').style.display = 'none';
-    document.getElementById('fcf-form').style.display = 'block';
+    var message = '<br><br>' + message.substring(8);
+    var content = document.getElementById('fcf-thank-you').innerHTML;
+    document.getElementById('fcf-thank-you').innerHTML = content + message;
+    document.getElementById('fcf-status').innerHTML = '';
+    document.getElementById('fcf-form').style.display = 'none';
+    document.getElementById('fcf-thank-you').style.display = 'block';
 }
